@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "EnterKey",
   "description": "Enterキーを監視し、無効にする。Chat時のEnterでメッセージすることを防ぐ",
-  "version": "0.1.0.0",
+  "version": "0.1.0.2",
   "icons": {
     "128": "img/icon128.png",
     "48": "img/icon48.png",
@@ -27,7 +27,8 @@
       ],
       "js": [
         "content.js"
-      ]
+      ],
+      "run_at": "document_start"
     }
   ],
   "permissions": [

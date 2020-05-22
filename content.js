@@ -9,14 +9,17 @@ chrome.runtime.sendMessage({todo: "showPageAction"});
 
 
 function moniterKeyEvt(evt){
-    console.log(document.URL);
-    if(evt.code == 'Enter' && !evt.ctrlKey ){
+    //Enterkeyである　Ctr、Shift押してない　IMEに打ったものではない
+    if(evt.code == 'Enter' && !evt.ctrlKey && !evt.shiftKey && !evt.isComposing ){
         //さらに、Target判断
         // console.log(evt.target.classList);
         evt.target.classList.forEach(element => {
             if(element.includes("chat_input")){
+                // console.log(evt);
                 evt.preventDefault();
                 evt.stopPropagation();
+                let txt = evt.target.value;
+                evt.target.value = txt + "\n";
             }
         });
     }
